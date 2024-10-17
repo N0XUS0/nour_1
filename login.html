@@ -41,8 +41,8 @@
 
             // التحقق من صحة الكود
             if (userCode === correctCode) {
-                // تخزين حالة تسجيل الدخول في localStorage
-                localStorage.setItem('isLoggedIn', 'true');
+                // تخزين حالة تسجيل الدخول في sessionStorage (للجلسة الحالية فقط)
+                sessionStorage.setItem('isLoggedIn', 'true');
                 
                 // إعادة توجيه المستخدم إلى صفحة الاندكس
                 window.location.href = "index.html";
