@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>آراء الطلاب</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="pd2.css">
+    <link rel="stylesheet" href="pd.css">
+    <link rel="stylesheet" href="first.css">
+    <link rel='stylesheet' href='https://cdn.jsdelivr.net/npm/swiper@8/swiper-bundle.min.css'>
+
+</head>
+
+
+<body>
+    <script>
+        // التحقق مما إذا كان المستخدم قد سجل الدخول
+        window.onload = function() {
+            const isLoggedIn = localStorage.getItem('isLoggedIn');
+            if (isLoggedIn !== 'true') {
+                // إذا لم يسجل الدخول، يتم إرجاعه إلى صفحة تسجيل الدخول
+                window.location.href = 'login.html';
+            }
+        }
+</script>
+    <iframe width="560" height="315" src="https://www.youtube.com/embed/g0Yhahv09Uw?si=lLcpOt7-8Vynq_BM" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+</body>
+</html>

@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>صور القاعات</title>
+    <link rel="stylesheet" href="pd2.css">
+    <link rel="stylesheet" href="style.css">
+    <link rel='stylesheet' href='https://cdn.jsdelivr.net/npm/swiper@8/swiper-bundle.min.css'>
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <script src="https://kit.fontawesome.com/b828253d90.js" crossorigin="anonymous"></script>
+
+</head>
+<script>
+        // التحقق مما إذا كان المستخدم قد سجل الدخول
+        window.onload = function() {
+            const isLoggedIn = localStorage.getItem('isLoggedIn');
+            if (isLoggedIn !== 'true') {
+                // إذا لم يسجل الدخول، يتم إرجاعه إلى صفحة تسجيل الدخول
+                window.location.href = 'login.html';
+            }
+        }
+</script>
+
+
+
+<iframe id="fbVideo" 
+    src="https://www.facebook.com/plugins/video.php?height=422&href=https%3A%2F%2Fwww.facebook.com%2Fnour.elropy.1%2Fvideos%2F1381322519183822%2F&show_text=false&width=560&t=0" 
+    width="560" height="422" style="border:none;overflow:hidden" 
+    scrolling="no" frameborder="0" allowfullscreen="true" 
+    allow="autoplay; clipboard-write; encrypted-media; picture-in-picture; web-share" 
+    allowFullScreen="true"></iframe>
+
+<script>
+// اختيار العنصر iframe
+const videoIframe = document.getElementById('fbVideo');
+
+// إنشاء مراقب
+const observer = new IntersectionObserver((entries, observer) => {
+  entries.forEach(entry => {
+    if (entry.isIntersecting) {
+      // عندما يصبح الفيديو مرئيًا في نافذة العرض، نضيف خاصية autoplay إلى الـ src لتشغيل الفيديو
+      const src = videoIframe.src;
+      if (!src.includes("autoplay=1")) {
+        videoIframe.src += "&autoplay=1";
+      }
+      // إيقاف المراقبة بعد تشغيل الفيديو
+      observer.unobserve(videoIframe);
+    }
+  });
+}, { threshold: 0.5 }); // يبدأ المراقب عندما يكون نصف العنصر على الأقل مرئيًا
+
+// تشغيل المراقب على iframe الفيديو
+observer.observe(videoIframe);
+</script>
+
+</body>
+</html>

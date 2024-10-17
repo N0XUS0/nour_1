@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="ar">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>صفحة دخول</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f0f0f0;
+            text-align: center;
+            margin-top: 100px;
+        }
+
+        #codeInput {
+            padding: 10px;
+            font-size: 16px;
+        }
+
+        button {
+            padding: 10px 20px;
+            font-size: 16px;
+            margin-top: 10px;
+            cursor: pointer;
+        }
+    </style>
+</head>
+<body>
+
+    <h1>أدخل الكود للوصول إلى الموقع</h1>
+    <input type="password" id="codeInput" placeholder="أدخل الكود">
+    <button onclick="checkCode()">تأكيد</button>
+
+    <script>
+        function checkCode() {
+            // الكود الصحيح
+            const correctCode = "12345";  // يمكنك تعديل الكود هنا
+
+            // الكود الذي أدخله المستخدم
+            const userCode = document.getElementById('codeInput').value;
+
+            // التحقق من صحة الكود
+            if (userCode === correctCode) {
+                // تخزين حالة تسجيل الدخول في localStorage
+                localStorage.setItem('isLoggedIn', 'true');
+                
+                // إعادة توجيه المستخدم إلى صفحة الاندكس
+                window.location.href = "index.html";
+            } else {
+                alert("الكود غير صحيح، حاول مرة أخرى.");
+            }
+        }
+    </script>
+
+</body>
+</html>
