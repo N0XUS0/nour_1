@@ -118,7 +118,7 @@
     <script>
         // التحقق مما إذا كان المستخدم قد سجل الدخول
         window.onload = function() {
-            const isLoggedIn = localStorage.getItem('isLoggedIn');
+            const isLoggedIn = sessionStorage.getItem('isLoggedIn');
             if (isLoggedIn !== 'true') {
                 // إذا لم يسجل الدخول، يتم إرجاعه إلى صفحة تسجيل الدخول
                 window.location.href = 'login.html';
